@@ -10,18 +10,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2) do
+ActiveRecord::Schema.define(version: 2020_07_23_152745) do
+
+  create_table "appointments", force: :cascade do |t|
+    t.integer "doctor_id"
+    t.integer "patient_id"
+    t.datetime "time"
+    t.string "reason"
+    t.string "notes"
+  end
+
+  create_table "doctor_contracts", force: :cascade do |t|
+    t.integer "doctor_id"
+    t.integer "insurance_id"
+  end
 
   create_table "doctors", force: :cascade do |t|
     t.string "name"
     t.string "specialty"
     t.integer "number_of_legs"
+    t.integer "facility_id"
+  end
+
+  create_table "facilities", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "insurances", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "medications", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "patient_contracts", force: :cascade do |t|
+    t.integer "insurance_id"
+    t.integer "patient_id"
   end
 
   create_table "patients", force: :cascade do |t|
     t.string "name"
     t.integer "age"
+  end
+
+  create_table "prescriptions", force: :cascade do |t|
+    t.integer "patient_id"
     t.integer "doctor_id"
+    t.integer "medication_id"
   end
 
 end
