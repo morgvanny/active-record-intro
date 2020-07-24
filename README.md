@@ -132,3 +132,5 @@ end
   - `Boxer.find_by(name: 'Mike Tyson')` will return the boxer with a name of 'Mike Tyson'
 
 [Active Record Docs](http://edgeguides.rubyonrails.org/active_record_migrations.html#using-the-up-down-methods)
+
+Doctors Patients Appointments
