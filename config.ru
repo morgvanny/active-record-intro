@@ -25,7 +25,7 @@ class App < Sinatra::Base
 
   post '/doctors' do
     d = Doctor.create(name: params[:doctor_name])
-    redirect_to "/doctors/#{d.id}"
+    redirect to "/doctors/#{d.id}"
   end
 
 
